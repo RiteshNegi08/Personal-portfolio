@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { Bio } from '../../data/constants';
 
 const FooterContainer = styled.div`
@@ -37,7 +36,7 @@ const Nav = styled.nav`
   margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   @media (max-width: 768px) {
     flex-wrap: wrap;
@@ -90,20 +89,22 @@ function Footer() {
       <FooterWrapper>
         <Logo>Ritesh Negi</Logo>
         <Nav>
+          <NavLink href="#home">Home</NavLink>
           <NavLink href="#about">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
-          <NavLink href="#education">Education</NavLink>
+          <NavLink href="#skills">Skills</NavLink>
+          <NavLink href="#certifications">Certifications</NavLink>
+          <NavLink href="#achievements">Achievements</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display"><FacebookIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display"><TwitterIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.github} target="_blank" rel="noreferrer" aria-label="GitHub profile"><GitHubIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><LinkedInIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={`mailto:${Bio.email}`} aria-label="Email Ritesh Negi"><EmailOutlinedIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 | Ritesh Negi | Made with Love ❤️️
+          &copy; {new Date().getFullYear()} Ritesh Negi · Test Automation Engineer 
         </Copyright>
 
       </FooterWrapper>

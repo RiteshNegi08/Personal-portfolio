@@ -1,151 +1,82 @@
 export const Bio = {
   name: "Ritesh Negi",
-  roles: ["Full Stack Developer", "Software Developer", "Programmer"],
+  roles: ["Test Automation Engineer", "SDET", "Quality Engineer"],
   description:
-    "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+    "I build scalable test automation frameworks and reliable quality engineering solutions with Playwright, TypeScript, AI-augmented testing, and CI/CD pipelines.",
+  phone: "+91 9760292663",
+  email: "ritesh.negi.948@gmail.com",
   github: "https://github.com/RiteshNegi08",
-  resume:
-    "https://drive.google.com/file/d/1x1Hm6BMDPkm-YQyPMonq2t5LA582840t/view?usp=sharing",
-  linkedin: "https://www.linkedin.com/in/ritesh-negi-8sep2001/",
-  twitter: "https://twitter.com/ritnegi01",
-  insta: "https://www.instagram.com/ritesh.negi.08/",
-  facebook: "https://www.facebook.com/ritesh.negi.2001",
+  linkedin: "https://linkedin.com/in/ritesh-negi-8sep2001",
+  resume: "https://drive.google.com/file/d/1QW4DAsL1VgRCwt01ZOFs_CFqUY5ct1QP/view?usp=sharing",
 };
 
 export const skills = [
   {
-    title: "Frontend",
-    skills: [
-      {
-        name: "HTML",
-        image: "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
-      },
-      {
-        name: "CSS",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
-      },
-      {
-        name: "JavaScript",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
-      },
-      {
-        name: "React Js",
-        image:
-          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-      },
-      {
-        name: "Bootstrap",
-        image:
-          "https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png",
-      },
-      {
-        name: "Tailwind",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMAgy_XeSr2CmOITAysaZtDxsVUSTSYtSM2EKE5ivhg&sdata:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIACoAOAMBEQACEQEDEQH/xAAaAAADAAMBAAAAAAAAAAAAAAAABQYDBAcB/8QAMBAAAQMDAQYFAQkAAAAAAAAAAQIDBAAFEQYSITFBYYETIjJRkXEUFRYkMzSx0fD/xAAaAQEAAgMBAAAAAAAAAAAAAAAAAwQBAgUG/8QAKxEAAgEDAgUDBAMBAAAAAAAAAAECAwQREiEFMUFRYRMj0RUyceEigfAU/9oADAMBAAIRAxEAPwDuNAFAY5D7MZouyHUNNp4rWoADuayk28I1nOMFqk8IWDU1lK9n7wZz778fOMVJ6NTsVfqFrnGtDNh5qQ2HWHUONq4KQoEHuKjaa2ZahOM1qi8oyVg2CgCgAnAyeFARtw0/c9RyFS5cpMWOD+XYUgqKU8iRkYJ4+9XIVoUlhLL6nFrWVe8lrnLSui5/G5MXmxy7M6lMkJW2v0Oo9KunQ9KsQqxqcjjXdpVtnifJ9Qst1k2iSHYysoP6jRPlWP761ipBTWGRW15Utp6ocuq6P/dzosLUFslsB0S2mjjzIdUEqT81QlSlF4weqo8RtqsNWtL87M2IFxauCnVRfOw2dnxeSlc8dBu39a1lFx5ktvdQuG3T3its934NtRCQVKIAG8k8q1LJPS9aWeO4UIcdkEcSyjKfk4B7VYjbVH4OdU4pbQeE8/gyQNXWma4G/FWwtW4eMnZB78KxK3nFZM0uKW1SWnOH5G8yKxOjLjymw40sb0moYycXlFyrShVg4TWUyPmaGdDhMGWgo5JeGCO44/FWlc90efrcCln2p7efk9h6IeKwZkttKOYaBJPc8KxK4XRGlLgE2/dnt4/ZYRIzMOOiPHQENIGABVZtt5Z6OjShRgoQWEhdf7fJuzbcFt4sRVeaQ4n1KHJI+vP6c81JSmoPVjLILqjOulTTxHr8COfoKP8AZybfJdDwG5LxBSrpuAxU8bt5/kihW4PFx9uTz5Ip1hxh5bL7akOIOypChvBq3lPdHnakZQk4yWGio0zqlUBsRbhtuRxubWN6m+nUfxVWrR1bxOnYcV9BenW3j0fb9FF+JYst9uLagt+Q6cBRQUpQOajn2qv6TisyOp9VpVZqlQ3k/Gy8sfVEdUKAKAKAV3iwwbuAqS2UugYDrZwoD2696khVlDkU7qxo3P3rfuuYkGhWAv8Afu7HtsDPzUv/AEvscz6DDP3vH9D602aHaUERUErUMKcWcqV/ulQzqSnzOpaWNG1Xtrfv1GNaFsKAKAKAKAKAKAKAKA//2Q==",
-      },
-      {
-        name : "Chakra UI",
-        image: "https://avatars.githubusercontent.com/u/54212428?s=280&v=4",
-      },
-    ],
+    title: "Test Automation",
+    skills: ["Playwright", "Selenium WebDriver", "WebdriverIO"],
   },
   {
-    title: "Backend",
-    skills: [
-      {
-        name: "Node Js",
-        image: "https://nodejs.org/static/images/logo.svg",
-      },
-      {
-        name: "Express Js",
-        image: "https://w7.pngwing.com/pngs/846/87/png-transparent-mean-solution-stack-express-js-node-js-javascript-github-text-trademark-logo-thumbnail.png",
-      },
-      {
-        name: "Mongo DB",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpANMMOQgNWUsHWXVPV-MPA9sXAe7vTmz7z248O2Klug&s",
-      },
-      {
-        name: "MySQL",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-      },
-      {
-        name: "Python",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      },
-    ],
+    title: "Programming Languages",
+    skills: ["TypeScript", "Java", "JavaScript", "SQL"],
   },
   {
-    title: "Problem Solving",
-    skills: [
-      {
-        name: "C++",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png",
-      },
-      {
-        name: "Java",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-      },
-    ],
+    title: "Testing Frameworks",
+    skills: ["Cucumber", "TestNG", "JUnit"],
   },
   {
-    title: "Others",
-    skills: [
-      {
-        name: "Git",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKMky7hnRbgrnuDKfBnatDymtb93vbAegkiFo8AX8dA&s",
-      },
-      {
-        name: "GitHub",
-        image:
-          "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-      },
-      {
-        name: "Netlify",
-        image:
-          "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
-      },
-      {
-        name: "VS Code",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
-      },
-      {
-        name: "Jupyter Notebook",
-        image: "https://jupyter.org/assets/homepage/main-logo.svg",
-      },
-      {
-        name: "eclipse",
-        iamge:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FO2r0XP39TY7Si-1yXUCCSEU2SUwm5w85le21zz7hQ&s",
-      },
-    ],
+    title: "API Testing",
+    skills: ["Playwright", "Postman", "REST Assured"],
+  },
+  {
+    title: "CI/CD & Version Control",
+    skills: ["GitHub Actions", "Git", "GitHub"],
+  },
+  {
+    title: "Data & Runtime",
+    skills: ["MSSQL Server", "MongoDB", "Node.js", "Maven"],
+  },
+  {
+    title: "Test Management",
+    skills: ["Azure DevOps"],
   },
 ];
 
 export const experiences = [
   {
     id: 0,
-    img: "https://dtechex.com/wp-content/uploads/2021/02/logo@2x.png",
-    role: "Web development Intern",
-    company: "DtechEx Technologies",
-    date: "April 2024 - July 2024",
-    desc: "Designed and built a responsive web app for Mutants Gym enabling gym members to log attendance.Implemented user authentication, attendance tracking, and admin controls for managing records. Deployed system improving gym attendance monitoring operations by 40% in efficiency. Recognized for intuitive design and user-friendly interface.",
+    role: "Quality Engineer",
+    company: "LTM",
+    companyLogo: "https://www.ltm.com/content/dam/ltimcorporatewebsite/refresh-images/LTM-Logo.svg",
+    date: "February 2025 - Present",
+    location: "Onsite",
+    project: "Health & Benefits Broker - Marsh US",
+    projectLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3z9tp-9s6m9oFy94db4UUXzljtqiYeYB7qKtqNMFKBIyXAgT5ePEmLtRF&s=10",
+    desc: [
+      "Contributed to the stability, accuracy, and functionality of a Health & Benefits Broker platform in the insurance domain.",
+      "Tested policy administration, renewals, benefits management, billing, client onboarding, premium validation, and critical business journeys.",
+      "Performed functional, smoke, regression, UI, and end-to-end testing; analyze requirements and acceptance criteria; design test scenarios, test data, and traceability mappings.",
+      "Tracked defects in Azure DevOps and collaborate with developers, business analysts, and product teams to validate fixes.",
+      "Participated in sprint planning, backlog refinement, daily stand-ups, sprint reviews, and retrospectives.",
+      "Migrated 200+ legacy Selenium (C#) automation test cases to Playwright with TypeScript, reducing regression execution time by approximately 45% and improving framework maintainability and stability.",
+      "Reported a critical billing defect during functional testing that was resolved before production.",
+    ],
+    metrics: [
+      { value: "200+", label: "Legacy test cases migrated" },
+      { value: "~45%", label: "Regression time reduction" },
+      { value: "50%", label: "Increased Test Coverage for Critical Billing and Other Funtional Modules" },
+      { value: "85%", label: "Reduced Production Regression Issues and Minimized Customer Impact" },
+      { value: "3-4hrs", label: "Saved hours of manual testing time per release" },
+      { value: "100%", label: "Data validation accross product configurations" },
+    ],
     skills: [
-      "React js",
-      "Javascript",
-      "Node js",
-      "Express js",
-      "Tailwind Css",
-      "Bootstrap",
-      "ChakraUI",
-      "Redux Toolkit",
-      "Mongo DB",
+      "Playwright",
+      "TypeScript",
+      "Selenium (C#)",
+      "Azure DevOps",
+      "MSSQL Server",
+      "Github Actions",
+      "Functional Testing",
+      "Regression Testing",
     ],
   },
 ];
@@ -153,147 +84,130 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://oeru.org/assets/partnerpage/Graphic-Era-Hill-University.png",
-    school: "Graphic Era Hill University, Dehradun",
-    date: "Sept 2020 - July 2024",
-    grade: "8.21 CGPA",
-    desc: "I am currently pursuing a Bachelor's degree in Computer Science and Engineering at Graphic Era Hill University,Dehradun. I have completed 7 semesters and have a CGPA of 8.21. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others.",
-    degree: "Bachelor of Technology - BTech, Computer Science and Engineering",
-  },
-  {
-    id: 1,
-    img: "https://www.boardingschoolindia.com/wp-content/uploads/2016/08/drona-international-school-dehradun-logo.jpg",
-    school: "Drona's International School, Dehradun",
-    date: "Apr 2019 - Apr 2020",
-    grade: "65.8%",
-    desc: "I completed my class 12 high school education at Drona's International School, Dehradun, where I studied PCM with Computer Science.",
-    degree: "CBSE(XII), PCM with Computer",
-  },
-  {
-    id: 2,
-    img: "https://www.boardingschoolindia.com/wp-content/uploads/2016/08/drona-international-school-dehradun-logo.jpg",
-    school: "Drona's International School, Dehradun",
-    date: "Apr 2017 - Apr 2018",
-    grade: "84.2%",
-    desc: "I completed my class 10 education at Drona's International School, Dehradun.",
-    degree: "CBSE(X), Science",
+    school: "Graphic Era Hill University",
+    image: "https://gehu.ac.in/assets/images/geu-white-de3bfd09.svg",
+    date: "August 2020 - July 2024",
+    grade: "Average SGPA: 8.21",
+    desc: "",
+    degree: "Bachelor of Technology - Computer Science",
   },
 ];
 
 export const projects = [
   {
     id: 0,
-    title: "Phising Website Detection",
-    date: "Feb 2024 - June 2024",
+    title: "HBBCore - Playwright + TypeScript BDD Automation Framework",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdtO5nN9PKcg8IGZqTIkvQbBg2kHskGENmoLa5azhEw&s=10",
+    domain: "Insurance / Health & Benefits",
+    date: "End-to-end UI automation",
     description:
-      "A phishing website detector identifies and blocks malicious websites that mimic legitimate ones to steal sensitive information. It uses techniques like analyzing URLs and website content to protect users from cyber threats",
-    image:
-      "https://i.postimg.cc/BQrZbx6x/p-a-d-good.png",
-    tags: ["Python", "Pandas", "Smote", "KNN", "Pickle", "Streamlit"],
-    category: "machine learning",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://phishing-urls-detector.netlify.app/",
+      "A scalable end-to-end automation framework designed for Health & Benefits business workflows.",
+    tags: ["Playwright", "TypeScript", "Cucumber", "GitHub Actions", "JSON", "HTML Reporting"],
+    workflows: ["Authentication", "Product management", "Billing", "Census upload", "End-to-end business workflows"],
+    features: [
+      "Reusable fixtures, modular utilities, parallel execution, and cross-browser testing",
+      "Environment-specific configuration, authentication state reuse, and dynamic locator strategies",
+      "Automatic screenshots and Cucumber reporting integrated with GitHub Actions CI/CD",
+      "Custom HTML regression dashboard generated from Cucumber JSON reports, replacing manual Excel reporting",
+      "Reusable JSON validation utility with configurable field mappings, reducing manual assertions across 500+ fields",
+    ],
   },
   {
     id: 1,
-    title: "URL Shortner Application",
-    date: "July 2024 - August 2024",
+    title: "Target - Selenium Hybrid Automation Framework",
+    image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Target_logo.svg/960px-Target_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+    domain: "Retail & E-commerce",
+    date: "UI and workflow automation",
     description:
-      "Developed a URL shortener web application using React JS for the front-end and Supabase for the back end.Implemented features including Signup, login authentication, URL shortening, tracking total clicks, and analytics dashboard.Designed a responsive and user-friendly interface with Tailwind CSS and Shadcn UI for an enhanced user experience.",
-    image:
-      "https://i.postimg.cc/L6vfw3mW/shortner.png",
-    tags: ["Javascript", "React JS", "Tailwind CSS", "Supabase", "Shadcn UI"],
-    category: "web app",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://url-shortner-detector.netlify.app/",
+      "A hybrid test automation framework using industry-standard practices for retail and e-commerce workflows.",
+    tags: ["Java", "Selenium WebDriver", "TestNG", "Cucumber", "Maven", "Selenium Grid", "GitHub Actions", "Extent Reports"],
+    workflows: ["Authentication", "Product search and filtering", "Shopping cart", "Checkout", "Order confirmation"],
+    features: [
+      "Page Object Model and reusable utilities",
+      "Data-driven testing with Excel-based test data",
+      "Parallel cross-browser execution with Selenium Grid",
+      "Retry logic, explicit waits, screenshots, logging, and Extent Reports",
+      "GitHub Actions integration",
+    ],
   },
   {
     id: 2,
-    title: "Web-Based Chat Application",
-    date: "Sept 2023 - Nov 2023",
+    title: "EaseMyTrip - Selenium Page Object Model Framework",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/EaseMyTrip_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+    domain: "Travel & Tourism",
+    date: "Travel booking workflow automation",
     description:
-      "A web-based chat application using the MERN stack (MongoDB, Express.js, React, Node.js) enables real-time messaging with a responsive interface. It leverages Node.js and Express for backend communication, MongoDB for data storage, and React for dynamic front-end user interactions.",
-    image:
-      "https://i.postimg.cc/d0zc6tJn/chat-app.png",
-    tags: ["Javascript" ,"React Js", "MongoDB", "Express", "Node JS"],
-    category: "web app",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://url-shortner-detector.netlify.app/",
-  },
-  {
-    id: 3,
-    title: "Movie Recommendation System",
-    date: "July 2023- August 2023",
-    description:
-      "Movie recommendation system is a web application using machine learning techniques, specifically the CountVectorizer and BoW model. The project seamlessly integrates a Python Streamlit frontend for an intuitive user experience and leverages Jupyter Notebook for robust backend model training.This project confidently delivers relevant movie suggestions to users.",
-    image:
-      "https://i.postimg.cc/Z5rs4d03/m-r-s.png",
-    tags: [
-      "Python",
-      "StreamLit",
-      "Pandas",
-      "NumPy",
-      "CountVectorizer",
-      "Bag of Words",
-      "Pickle",
+      "A Page Object Model-based automation framework for core travel booking workflows.",
+    tags: ["Java", "Selenium WebDriver", "TestNG", "Maven", "Excel", "Extent Reports"],
+    workflows: ["User login", "Flight search", "Traveller details", "Fare selection", "Booking validation"],
+    features: [
+      "Reusable page classes and data-driven test scenarios",
+      "Explicit waits, TestNG parameterization, and test grouping",
+      "Assertions, Extent Reports, and screenshot capture",
+      "Git and GitHub version control",
     ],
-    category: "machine learning",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://Movie-Recommender-System-Project.netlify.app/",
-  },
-  {
-    id: 4,
-    title: "Currency Convertor",
-    date: "August 2023",
-    description:
-      "A sleek, React-based web app that provides real-time currency conversions using up-to-date exchange rates from a reliable API. It supports a wide range of global currencies and offers a user-friendly interface for effortless conversions.",
-    image:
-      "https://i.postimg.cc/50PJ5zmN/cc.png",
-    tags: ["React Js", "API", "Axios", "Node JS"],
-    category: "web app",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://Currency-Converter.netlify.app/",
-  },
-  {
-    id: 5,
-    title: "Todo Web App",
-    date: "June 2023",
-    description:
-      " A Todo Web App made with React JS, Redux, and Material UI. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the tasks and can create a new task. It has a calendar where users can see all the tasks on a particular date. It has a search bar where users can search for a particular task.",
-    image:
-      "https://i.postimg.cc/7hPGBS7C/todo.png",
-    tags: ["React Js", "Local Storage", "AWS Auth", "Node JS"],
-    category: "web app",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://Todo-Web-App.netlify.app/",
-  },
-  {
-    id: 6,
-    title: "Student management Portal",
-    date: "Nov 2022 - Jan 2023",
-    description:
-      "Student Management System is an online platform for managing student details using HTML, CSS, JavaScript for frontend and Python flask, SQLAlchemy for backend. Implemented features like login page, add student information, update attendance, and add department",
-    image:
-    "https://i.postimg.cc/pV0pWhzZ/sms.png",
-    tags: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Python",
-      "Flask",
-      "MySQL",
-      "SQLAlchemy",
-    ],
-    category: "web app",
-    github: "https://github.com/riteshnegi08",
-    webapp: "https://Student-Management-System.netlify.app/",
   },
 ];
 
-export const TimeLineData = [
-  { year: 2020, text: "Started my Engineering journey" },
-  { year: 2021, text: "Started learning DSA and Web-development" },
-  { year: 2022, text: "Started making projects" },
-  { year: 2023, text: "Started learning CS Fundamentals " },
-  { year: 2024, text: "Started working as a front end developer" },
+export const expertise = [
+  { title: "UI Automation", description: "Playwright, Selenium" },
+  { title: "Functional Testing", description: "Requirement analysis, test case design, functional validation" },
+  { title: "Regression Testing", description: "Smoke, regression, UI, and end-to-end testing" },
+  { title: "API Testing", description: "Postman, REST Assured" },
+  { title: "BDD", description: "Cucumber and Gherkin" },
+  { title: "Framework Development", description: "Reusable fixtures, utilities, page objects, configuration management" },
+  { title: "CI/CD", description: "GitHub Actions and automated regression execution" },
+  { title: "Cross-Browser Testing", description: "Playwright browsers and Selenium Grid" },
+  { title: "Defect Management", description: "Azure DevOps" },
+  { title: "Database Validation", description: "MSSQL Server and MongoDB" },
+];
+
+export const certifications = [
+  {
+    title: "GitHub Copilot - The Complete Guide",
+    provider: "Udemy",
+    date: "March 2026",
+    url: "https://www.udemy.com/certificate/UC-9227d243-a785-41b9-8782-f8845d129d5b/",
+    preview: "https://udemy-certificate.s3.amazonaws.com/image/UC-9227d243-a785-41b9-8782-f8845d129d5b.jpg",
+  },
+  {
+    title: "Prompt Engineering: Getting Future Ready",
+    provider: "Udemy",
+    date: "July 2025",
+    url: "https://www.udemy.com/certificate/UC-57c170aa-1281-472e-a760-c99db642e60e/",
+    preview: "https://udemy-certificate.s3.amazonaws.com/image/UC-57c170aa-1281-472e-a760-c99db642e60e.jpg",
+  },
+  {
+    title: "Playwright: Web Automation Testing from Zero to Hero",
+    provider: "Udemy",
+    date: "April 2025",
+    url: "https://www.udemy.com/certificate/UC-3987db97-5527-495a-a419-2194571ab521/",
+    preview: "https://udemy-certificate.s3.amazonaws.com/image/UC-3987db97-5527-495a-a419-2194571ab521.jpg",
+  },
+  {
+    title: "WebDriverIO + Node.js - JavaScript UI Automation from Scratch",
+    provider: "Udemy",
+    date: "March 2025",
+    url: "https://www.udemy.com/certificate/UC-b8e5632e-b039-47dc-8e10-23670cd83254/",
+    preview: "https://udemy-certificate.s3.amazonaws.com/image/UC-b8e5632e-b039-47dc-8e10-23670cd83254.jpg",
+  },
+];
+
+export const achievements = [
+  {
+    title: "SDET Performance Recognition",
+    description: "Recognized among the highest-performing trainees in the SDET batch.",
+  },
+  {
+    title: "Client Appreciation",
+    description: "Received client appreciation for rapidly onboarding to the project and contributing within a short timeframe.",
+  },
+  {
+    title: "Shooting Star Award - LTM",
+    description: "Recognized for outstanding performance and contributions to AI-augmented quality engineering and delivery excellence.",
+  },
+  {
+    title: "College Cricket",
+    description: "Represented the college cricket team in an inter-college tournament.",
+  },
 ];

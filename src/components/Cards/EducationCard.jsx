@@ -73,24 +73,29 @@ const Top = styled.div`
     gap: 12px
 `
 
-const Image = styled.img`
-    height: 50px;
-    background-color: #000;
-    border-radius: 10px;
-    margin-top: 4px;
-    @media only screen and (max-width: 768px){
-        height: 40px;
-    }
-`
-
 const Body = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column; 
 `
 
+const SchoolIdentity = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+`
+
+const SchoolLogo = styled.img`
+    width: 82px;
+    height: 82px;
+    flex: 0 0 82px;
+    object-fit: contain;
+`
+
 
 const Name = styled.div`
+    min-width: 0;
     font-size: 18px;
     font-weight: 600;
     color: ${({ theme }) => theme.text_primary + 99};
@@ -132,17 +137,17 @@ const EducationCard = ({ education }) => {
     return (
         <Card>
             <Top>
-                <Image src={education.img} />
                 <Body>
-                    <Name>{education.school}</Name>
+                    <SchoolIdentity>
+                        <Name>{education.school}</Name>
+                        <SchoolLogo src={education.image} alt="Graphic Era Hill University logo" />
+                    </SchoolIdentity>
                     <Degree>{education.degree}</Degree>
                     <Date>{education.date}</Date>
                 </Body>
             </Top>
-            <Grade><b>Grade: </b>{education.grade}</Grade>
-            <Description>
-                <Span>{education.desc}</Span>
-            </Description>
+            <Grade>{education.grade}</Grade>
+            {education.desc && <Description><Span>{education.desc}</Span></Description>}
         </Card>
     )
 }

@@ -1,39 +1,28 @@
-import React from 'react'
 import HeroBgAnimation from '../HeroBgAnimation'
-import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle,SocialMediaIcons,SocialMediaIcon, ResumeButton } from './HeroStyle'
-import HeroImg from '../../images/HeroImage.jpeg'
-import Typewriter from 'typewriter-effect';
+import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle, PhoneLink, ContactMe } from './HeroStyle'
+import HeroImg from '../../images/HeroImage.png'
 import { Bio } from '../../data/constants';
 
 const HeroSection = () => {
     return (
-        <div id="about">
+        <div id="home">
             <HeroContainer>
                 <HeroBg>
-                    <HeroBgAnimation />
+                    <div aria-hidden="true"><HeroBgAnimation /></div>
                 </HeroBg>
                 <HeroInnerContainer >
                     <HeroLeftContainer id="Left">
-                        <Title>Hi, I am <br /> {Bio.name}</Title>
-                        <TextLoop>
-                            I am a
-                            <Span>
-                                <Typewriter
-                                    options={{
-                                        strings: Bio.roles,
-                                        autoStart: true,
-                                        loop: true,
-                                    }}
-                                />
-                            </Span>
-                        </TextLoop>
+                        <Title>{Bio.roles[0]}</Title>
+                        <TextLoop>{Bio.name}</TextLoop>
+                        <Span>Playwright | TypeScript | AI-Augmented Testing </Span>
                         <SubTitle>{Bio.description}</SubTitle>
-                        <ResumeButton href={Bio.resume} target='display'>Check Resume</ResumeButton>
+                        <ContactMe href="#contact">Contact Me</ContactMe>
+                        <PhoneLink href={`tel:${Bio.phone.replace(/\s/g, "")}`}>{Bio.phone}</PhoneLink>
                     </HeroLeftContainer>
 
                     <HeroRightContainer id="Right">
 
-                        <Img src={HeroImg} alt="hero-image" />
+                        <Img src={HeroImg} alt="Portrait of Ritesh Negi" />
                     </HeroRightContainer>
                 </HeroInnerContainer>
 

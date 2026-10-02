@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import _default from "../../themes/default";
 
 export const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
@@ -10,7 +9,7 @@ export const HeroContainer = styled.div`
   @media (max-width: 960px) {
     padding: 66px 16px;
   }
-  @media (max-width: 640) {
+  @media (max-width: 640px) {
     padding: 32px 16px;
   }
   z-index: 1;
@@ -112,45 +111,50 @@ export const Img = styled.img`
   }
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-weight: 700;
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 1.15;
+  margin: 0 0 12px;
   @media (max-width: 960px) {
     text-align: center;
   }
 
   @media (max-width: 640px) {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 36px;
+    line-height: 1.2;
     margin-bottom: 8px;
   }
 `;
 
 export const TextLoop = styled.div`
   font-weight: 600;
-  font-size: 32px;
+  font-size: 25px;
   display: flex;
   gap: 12px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 1.4;
   @media (max-width: 960px) {
     text-align: center;
   }
   @media (max-width: 640px) {
-    font-size: 22px;
-    line-height: 48px;
+    font-size: 20px;
+    line-height: 1.5;
     margin-bottom: 16px;
   }
 `;
 
 export const Span = styled.span`
   color: ${({ theme }) => theme.primary};
-  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  @media (max-width: 640px) { font-size: 15px; }
 `;
 
-export const SubTitle = styled.div`
+export const SubTitle = styled.p`
   font-size: 20px;
   line-height: 32px;
   margin-bottom: 42px;
@@ -166,32 +170,58 @@ export const SubTitle = styled.div`
   }
 `;
 
-export const ResumeButton = styled.a`
+export const PhoneLink =  styled.a`
+  display: block;
+  margin-top: 10px;
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
     text-decoration: none;
-    width: 95%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 220px;
     text-align: center;
     padding: 16px 0;
     color:${({ theme }) => theme.white};
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
     transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
+    background: ${({ theme }) => theme.primary};
+    box-shadow: none;
     &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+    }    
+    
+    
+    @media (max-width: 640px) {
+        padding: 14px 0;
+        font-size: 18px;
+    } 
+
+`;
+
+export const ContactMe = styled.a`
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+    padding: 16px 0;
+    color:${({ theme }) => theme.white};
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out !important;
+    background: ${({ theme }) => theme.primary};
+    box-shadow: none;
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
     }    
     
     

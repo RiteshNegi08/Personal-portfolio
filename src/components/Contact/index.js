@@ -3,14 +3,16 @@ import styled from 'styled-components'
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Snackbar } from '@mui/material';
+import { Bio } from '../../data/constants';
 
-const Container = styled.div`
+const Container = styled.section`
 display: flex;
 flex-direction: column;
 justify-content: center;
 position: relative;
 z-index: 1;
 align-items: center;
+scroll-margin-top: 88px;
 @media (max-width: 960px) {
     padding: 0px;
 }
@@ -75,6 +77,21 @@ const ContactTitle = styled.div`
   color: ${({ theme }) => theme.text_primary};
 `
 
+const ContactLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin: 18px 0 8px;
+`;
+
+const ContactLink = styled.a`
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 15px;
+  text-underline-offset: 4px;
+  &:hover, &:focus-visible { color: ${({ theme }) => theme.primary}; }
+`;
+
 const ContactInput = styled.input`
   flex: 1;
   background-color: transparent;
@@ -124,41 +141,78 @@ const ContactButton = styled.input`
 
 const Contact = () => {
 
-  //hooks
   const [open, setOpen] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
+  const [feedbackMessage, setFeedbackMessage] = React.useState("");
   const form = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
-      .then((result) => {
-        setOpen(true);
-        form.current.reset();
-      }, (error) => {
-        console.log(error.text);
-      });
+    setSending(true);
+    const formData = new FormData(form.current);
+    const senderEmail = formData.get("from_email");
+    const senderName = formData.get("from_name");
+    const subject = formData.get("subject");
+    const senderMessage = formData.get("message");
+
+    try {
+      await emailjs.send(
+        "service_fgs4x8m",
+        "template_tfg2lse",
+        {
+          to_email: Bio.email,
+          name: senderName,
+          email: senderEmail,
+          user_name: senderName,
+          user_email: senderEmail,
+          from_email: senderEmail,
+          from_name: senderName,
+          reply_to: senderEmail,
+          title: subject,
+          subject,
+          message: `From: ${senderName} <${senderEmail}>\nSubject: ${subject}\n\n Sender's Message: ${senderMessage}`,
+        },
+        "IEjvaovrcuzoxWnVg"
+      );
+      setFeedbackMessage("Message sent successfully.");
+      form.current.reset();
+    }catch (error) {
+  console.error("EmailJS error:", error);
+  setFeedbackMessage(
+    error?.text || error?.message || "Unknown EmailJS error"
+  );
+} finally {
+      setSending(false);
+      setOpen(true);
+    }
   }
 
 
 
   return (
-    <Container>
+    <Container id="contact" aria-labelledby="contact-title">
       <Wrapper>
-        <Title>Contact</Title>
+        <Title id="contact-title">Contact</Title>
         <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
-        <ContactForm ref={form} onSubmit={handleSubmit}>
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" rows="4" name="message" />
-          <ContactButton type="submit" value="Send" />
+        <ContactLinks aria-label="Direct contact links">
+          <ContactLink href={`tel:${Bio.phone.replace(/\s/g, "")}`}>{Bio.phone}</ContactLink>
+          <ContactLink href={`mailto:${Bio.email}`}>{Bio.email}</ContactLink>
+          <ContactLink href={Bio.linkedin} target="_blank" rel="noreferrer">LinkedIn</ContactLink>
+          <ContactLink href={Bio.github} target="_blank" rel="noreferrer">GitHub</ContactLink>
+        </ContactLinks>
+        <ContactForm ref={form} onSubmit={handleSubmit} aria-labelledby="contact-form-title">
+          <ContactTitle id="contact-form-title">Send a message</ContactTitle>
+          <ContactInput type="email" placeholder="Your email" aria-label="Your email" name="from_email" required />
+          <ContactInput placeholder="Your name" aria-label="Your name" name="from_name" required />
+          <ContactInput placeholder="Subject" aria-label="Subject" name="subject" required />
+          <ContactInputMessage placeholder="Message" aria-label="Message" rows="4" name="message" required />
+          <ContactButton type="submit" value={sending ? "Sending..." : "Send message"} disabled={sending} />
         </ContactForm>
         <Snackbar
           open={open}
           autoHideDuration={6000}
           onClose={()=>setOpen(false)}
-          message="Email sent successfully!"
+          message={feedbackMessage}
           severity="success"
         />
       </Wrapper>

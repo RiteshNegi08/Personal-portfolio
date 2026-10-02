@@ -28,7 +28,7 @@ export const NavbarContainer = styled.div`
 `;
 
 export const NavLogo = styled(LinkR)`
-    width: 80%;    
+  width: auto;
     padding: 0 6px;
     display: flex;
     justify-content: start;
@@ -43,16 +43,15 @@ export const Span = styled.div`
     font-weight: bold;
     font-size: 18px;
 `;
-export const NavItems = styled.ul`
-    width: 100%;
+export const NavItems = styled.nav`
+  flex: 1;
     display: flex;
     align-items: center;
     justify-content:center;
-    gap: 32px;
+  gap: 14px;
     padding: 0 6px;
-    list-style: none;
 
-    @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
       display: none;
     }
 `;
@@ -63,6 +62,7 @@ export const NavLink = styled.a`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    font-size: 13px;
     :hover {
       color: ${({ theme }) => theme.primary};
     }
@@ -73,7 +73,7 @@ export const NavLink = styled.a`
 `;
 
 
-export const GitHubButton = styled.a`
+export const HeaderAction = styled.a`
   border: 1.8px solid ${({ theme }) => theme.primary};
   justify-content: center;
   display: flex;
@@ -87,6 +87,12 @@ export const GitHubButton = styled.a`
   text-decoration: none;
   font-size: 16px;
   transition: all 0.6s ease-in-out;
+  background: transparent;
+  font: inherit;
+  &:disabled {
+    opacity: 0.72;
+    cursor: not-allowed;
+  }
     :hover {
       background: ${({ theme }) => theme.primary};
       color: ${({ theme }) => theme.white};     
@@ -97,26 +103,25 @@ export const GitHubButton = styled.a`
 `;
 
 export const ButtonContainer = styled.div`
-  width: 80%;  
+  width: auto;
   height: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
   padding: 0 6px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     display: none;
   }
 `;
 
 
-export const MobileIcon = styled.div`
+export const MobileIcon = styled.button`
   display: none;
-  @media screen and (max-width: 768px) {
+  border: 0;
+  padding: 8px;
+  background: transparent;
+  @media screen and (max-width: 1000px) {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
     font-size: 1.5rem;
     cursor: pointer;
     color: ${({ theme }) => theme.text_primary};
@@ -136,7 +141,7 @@ export const MobileMenu = styled.div`
     background: ${({ theme }) => theme.card_light+99};
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 8px 8px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};

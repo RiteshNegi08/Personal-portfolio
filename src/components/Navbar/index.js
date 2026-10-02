@@ -1,56 +1,62 @@
 import React from 'react'
-import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileNavLogo, MobileLink } from './NavbarStyledComponent'
-import { DiCssdeck } from 'react-icons/di';
+import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, HeaderAction, ButtonContainer, MobileIcon, MobileMenu, MobileLink } from './NavbarStyledComponent'
 import { FaBars } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
-import { Close, CloseRounded } from '@mui/icons-material';
-import { useTheme } from 'styled-components';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const theme = useTheme()
   return (
     <Nav>
       <NavbarContainer>
         <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-          </a>
+          <Span>Ritesh Negi</Span>
         </NavLogo>
-        <MobileIcon>
-          <FaBars onClick={() => {
-            setIsOpen(!isOpen)
-          }} />
+        <MobileIcon type="button" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"} aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}>
+          <FaBars aria-hidden="true" />
         </MobileIcon>
         <NavItems>
+          <NavLink href="#home">Home</NavLink>
           <NavLink href="#about">About</NavLink>
-          <NavLink href='#skills'>Skills</NavLink>
           <NavLink href='#experience'>Experience</NavLink>
           <NavLink href='#projects'>Projects</NavLink>
-          <NavLink href='#education'>Education</NavLink>
+          <NavLink href='#skills'>Skills</NavLink>
+          <NavLink href='#certifications'>Certifications</NavLink>
+          <NavLink href='#achievements'>Achievements</NavLink>
+          <NavLink href='#contact'>Contact</NavLink>
         </NavItems>
         <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank">Github Profile</GitHubButton>
+          <HeaderAction
+            as={Bio.resume ? 'a' : 'button'}
+            href={Bio.resume || undefined}
+            target={Bio.resume ? '_blank' : undefined}
+            rel={Bio.resume ? 'noreferrer' : undefined}
+            disabled={!Bio.resume}
+            aria-label={Bio.resume ? 'Open resume' : 'Resume link placeholder'}
+          >Resume</HeaderAction>
         </ButtonContainer>
         {
           isOpen &&
-          <MobileMenu isOpen={isOpen}>
-            <MobileLink href="#about" onClick={() => {
-              setIsOpen(!isOpen)
-            }}>About</MobileLink>
-            <MobileLink href='#skills' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Skills</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Experience</MobileLink>
-            <MobileLink href='#projects' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Projects</MobileLink>
-            <MobileLink href='#education' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Education</MobileLink>
-            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
+          <MobileMenu isOpen={isOpen} aria-label="Mobile navigation">
+            {[
+              ["Home", "home"],
+              ["About", "about"],
+              ["Experience", "experience"],
+              ["Projects", "projects"],
+              ["Skills", "skills"],
+              ["Certifications", "certifications"],
+              ["Achievements", "achievements"],
+              ["Contact", "contact"],
+            ].map(([label, id]) => (
+              <MobileLink key={id} href={`#${id}`} onClick={() => setIsOpen(false)}>{label}</MobileLink>
+            ))}
+            <HeaderAction
+              as={Bio.resume ? 'a' : 'button'}
+              href={Bio.resume || undefined}
+              target={Bio.resume ? '_blank' : undefined}
+              rel={Bio.resume ? 'noreferrer' : undefined}
+              disabled={!Bio.resume}
+              aria-label={Bio.resume ? 'Open resume' : 'Resume link placeholder'}
+            >Resume</HeaderAction>
           </MobileMenu>
         }
       </NavbarContainer>

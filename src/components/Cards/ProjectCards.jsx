@@ -1,149 +1,137 @@
-import React from 'react'
-import styled from 'styled-components'
+import styled from "styled-components";
+import ImageOutlined from "@mui/icons-material/ImageOutlined";
 
+const Card = styled.article`
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 348px);
+  min-height: 390px;
+  padding: 22px;
+  border: 1px solid ${({ theme }) => theme.text_secondary}44;
+  border-radius: 8px;
+  background: ${({ theme }) => theme.card};
+  transition: transform 180ms ease, border-color 180ms ease;
+  &:hover {
+    transform: translateY(-4px);
+    border-color: ${({ theme }) => theme.primary};
+  }
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+`;
 
-const Button = styled.button`
-    display: none;
-    width: 100%;
-    padding: 10px;
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.text_black};
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.8s ease-in-out;
-`
-const Card = styled.div`
-    width: 330px;
-    height: 490px;
-    background-color: ${({ theme }) => theme.card};
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
-    overflow: hidden;
-    padding: 26px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: all 0.5s ease-in-out;
-    &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
-        filter: brightness(1.1);
-    }
-    &:hover ${Button} {
-        display: block;
-    }
-`
+const ProjectVisual = styled.div`
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.text_secondary}33;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.card_light};
+`;
 
-const Image = styled.img`
-    width: 100%;
-    height: 180px;
-    background-color: ${({ theme }) => theme.white};
-    border-radius: 10px;
-    box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
-`
+const ProjectImage = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  object-fit: contain;
+`;
 
-const Tags = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-`
+const ImagePlaceholder = styled.div`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: ${({ theme }) => theme.text_secondary};
+  svg { width: 30px; height: 30px; opacity: 0.7; }
+`;
 
-const Tag = styled.span`
-    font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.primary};
-    background-color: ${({ theme }) => theme.primary + 15};
-    padding: 2px 8px;
-    border-radius: 10px;
-`
+const Domain = styled.p`
+  margin-bottom: 10px;
+  color: ${({ theme }) => theme.primary};
+  font-size: 13px;
+  font-weight: 600;
+`;
 
-const Details = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    padding: 0px 2px;
-`
-const Title = styled.div`
-    font-size: 20px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary};
-    overflow: hidden;
-    display: -webkit-box;
-    max-width: 100%;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-`
+const Title = styled.h3`
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 19px;
+  line-height: 1.4;
+`;
 
-const Date = styled.div`
-    font-size: 12px;
-    margin-left: 2px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
-    @media only screen and (max-width: 768px){
-        font-size: 10px;
-    }
-`
+const Description = styled.p`
+  margin: 12px 0;
+  color: ${({ theme }) => theme.text_secondary};
+  font-size: 14px;
+  line-height: 1.6;
+`;
 
+const Tags = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 2px 0 12px;
+  padding: 0;
+  list-style: none;
+`;
 
-const Description = styled.div`
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 99};
-    overflow: hidden;
-    margin-top: 8px;
-    display: -webkit-box;
-    max-width: 100%;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-`
+const Tag = styled.li`
+  padding: 4px 8px;
+  border: 1px solid ${({ theme }) => theme.text_secondary}55;
+  border-radius: 5px;
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 12px;
+`;
 
-const Members = styled.div`
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-`
-const Avatar = styled.img`
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    margin-left: -10px;
-    background-color: ${({ theme }) => theme.white};
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border: 3px solid ${({ theme }) => theme.card};
-`
+const Highlights = styled.ul`
+  display: grid;
+  gap: 7px;
+  margin: 0 0 18px;
+  padding-left: 18px;
+  color: ${({ theme }) => theme.text_secondary};
+  font-size: 13px;
+  line-height: 1.45;
+`;
 
-const ProjectCards = ({project,setOpenModal}) => {
-    return (
-        <Card onClick={() => setOpenModal({state: true, project: project})}>
-            <Image src={project.image}/>
-            <Tags>
-                {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
-                ))}
-            </Tags>
-            <Details>
-                <Title>{project.title}</Title>
-                <Date>{project.date}</Date>
-                <Description>{project.description}</Description>
-            </Details>
-            <Members>
-                {project.member?.map((member) => (
-                    <Avatar src={member.img}/>
-                ))}
-            </Members>
-            {/* <Button>View Project</Button> */}
-        </Card>
-    )
-}
+const DetailsButton = styled.button`
+  margin-top: auto;
+  padding: 10px 12px;
+  border: 1px solid ${({ theme }) => theme.primary};
+  border-radius: 6px;
+  background: transparent;
+  color: ${({ theme }) => theme.text_primary};
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover, &:focus-visible {
+    background: ${({ theme }) => theme.primary}22;
+    outline-color: ${({ theme }) => theme.primary};
+  }
+`;
 
-export default ProjectCards
+const ProjectCards = ({ project, setOpenModal }) => (
+  <Card>
+    <ProjectVisual>
+      {project.image
+        ? <ProjectImage src={project.image} alt={`${project.title} project screenshot`} />
+        : <ImagePlaceholder aria-hidden="true"><ImageOutlined /></ImagePlaceholder>}
+    </ProjectVisual>
+    <Domain>{project.domain}</Domain>
+    <Title>{project.title}</Title>
+    <Description>{project.description}</Description>
+    <Tags aria-label="Technology stack">
+      {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+    </Tags>
+    <Highlights>
+      {project.features.slice(0, 3).map((feature) => <li key={feature}>{feature}</li>)}
+    </Highlights>
+    <DetailsButton
+      type="button"
+      onClick={() => setOpenModal({ state: true, project })}
+      aria-label={`View details for ${project.title}`}
+    >
+      Project details
+    </DetailsButton>
+  </Card>
+);
+
+export default ProjectCards;
